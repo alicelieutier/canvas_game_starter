@@ -1,0 +1,16 @@
+body {
+  background-color: aquamarine; /* page background color */
+  color: darkblue; /* the text color */
+  font-family: Georgia, 'Times New Roman', Times, serif; /* the text font */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+canvas {
+  background-color: black;
+}
+
+#timer, #points {
+  font-family: monospace;
+}
