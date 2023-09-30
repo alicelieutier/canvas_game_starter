@@ -4,9 +4,18 @@ This repository contains basic files to get you started with a HTML and Javascri
 
 ## TODO
 
-- [] Create a rectangle
-- [] Make it move
-- [] Animation loop
+- [] Create a rectangle - call it player
+- [] Make it shoot bullets (animation loop)
+- [] Make player move when arrows are pressed - basic movement
+- [] Create a brick
+- [] Add collision and a win screen
+- [] Make the bricks move
+- [] Add a lose screen
+
+### Extra
+- [] Garbage collect
+- [] Better player movement and shooting (key states instead of keydowns + shooting cooldown)
+- [] Better enemy movements + lose screen
 
 
 ## Docs
