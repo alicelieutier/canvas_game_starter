@@ -1,6 +1,6 @@
-# Basic website starter
+# Basic HTML canvas-based game starter
 
-This repository contains basic files to get you started with a HTML and Javascript website. No library, nothing fancy.
+This repository contains basic files to get you started with a canvas based game using Javascript. No library, nothing fancy.
 
 ## TODO
 
@@ -23,7 +23,7 @@ This repository contains basic files to get you started with a HTML and Javascri
 
 ← `style.css`: CSS files add styling rules to your content.
 
-← `script.js`: If you're feeling fancy you can add interactivity to your site with JavaScript.
+← `script.js`: Add interactivity to your site with JavaScript.
 
 ← `tidbits.js`: Some bits of code to reuse for your project.
 
