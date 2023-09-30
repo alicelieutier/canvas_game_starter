@@ -1,5 +1,3 @@
-console.log('Javascript is running')
-
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -18,28 +16,32 @@ class Player {
   }
 }
 
-
 class Bullet {
   constructor(x, y) {
     this.x = x
     this.y = y
+    this.dy = -100 // vertical speed | bullets go up
     this.spawnTime = Date.now()
+  }
+
+  position(time) {
+    const timePassed = (time - this.spawnTime) / 1000
+    const y = this.y + timePassed * this.dy
+    return [this.x, y]
   }
 
   draw(time) {
     ctx.fillStyle = 'red';
-    // find new current position
-    const timePassed = (time - this.spawnTime) / 1000
-    const y = this.y - timePassed * 100
-    ctx.fillRect(this.x, y, 10, 10); // left, top, width, height
+    const [x,y] = this.position(time)
+    ctx.fillRect(x, y, 10, 10);
   }
-
 }
 
 const player = new Player()
 const bullets = []
 
 document.addEventListener('keydown', event => {
+  // firing bullets when 'Space' is pressed
   if (event.key === ' ') {
     const bullet = new Bullet(player.x + 25, player.y - 10)
     bullets.push(bullet)
@@ -58,7 +60,8 @@ function display() {
   player.draw()
   // bullets
   bullets.forEach(bullet => bullet.draw(time))
-  // call itself again later
+
+  // call display again later
   requestAnimationFrame(display)
 }
 display()
