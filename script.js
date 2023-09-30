@@ -8,6 +8,14 @@ class Player {
   constructor() {
     this.x = WIDTH / 2 -30
     this.y = HEIGHT - 30
+    this.dx = 30 // player horizontal speed
+  }
+
+  move(direction) {
+    let x = this.x + direction * this.dx
+    x = Math.max(0, x)
+    x = Math.min(x, WIDTH - 60)
+    this.x = x
   }
 
   draw() {
@@ -45,6 +53,13 @@ document.addEventListener('keydown', event => {
   if (event.key === ' ') {
     const bullet = new Bullet(player.x + 25, player.y - 10)
     bullets.push(bullet)
+  }
+
+  if (event.key === 'ArrowRight') {
+    player.move(1)
+  }
+  if (event.key === 'ArrowLeft') {
+    player.move(-1)
   }
 })
 
