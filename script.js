@@ -6,13 +6,16 @@ const ctx = canvas.getContext("2d");
 const WIDTH = canvas.width
 const HEIGHT = canvas.height
 
+class Player {
+  constructor() {
+    this.x = WIDTH / 2 -30
+    this.y = HEIGHT - 30
+  }
 
-let playerX = WIDTH / 2 -30
-let playerY = HEIGHT - 30
-
-function drawPlayer() {
-  ctx.fillStyle = 'yellow';
-  ctx.fillRect(playerX, playerY, 60, 30); // left, top, width, height
+  draw() {
+    ctx.fillStyle = 'yellow';
+    ctx.fillRect(this.x, this.y, 60, 30);
+  }
 }
 
 
@@ -33,27 +36,26 @@ class Bullet {
 
 }
 
+const player = new Player()
 const bullets = []
 
 document.addEventListener('keydown', event => {
   if (event.key === ' ') {
-    const bullet = new Bullet(playerX + 25, playerY - 10)
+    const bullet = new Bullet(player.x + 25, player.y - 10)
     bullets.push(bullet)
   }
 })
-
-
 
 function display() {
   // find the current time
   const time = Date.now()
 
-  // draw everything
   // clear everything
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // draw everything
   // player
-  drawPlayer()
+  player.draw()
   // bullets
   bullets.forEach(bullet => bullet.draw(time))
   // call itself again later
